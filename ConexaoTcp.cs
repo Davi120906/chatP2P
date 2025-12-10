@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Numerics; 
 
 namespace ChatP2P
 {
@@ -14,7 +15,6 @@ namespace ChatP2P
         private NetworkStream? fluxo;
 
         public event Action<string>? AoReceberMensagem;
-        public event Action<string>? AoClienteConectar;
 
         public async Task IniciarServidorAsync(int porta)
         {
@@ -22,22 +22,14 @@ namespace ChatP2P
             servidor.Start();
             cliente = await servidor.AcceptTcpClientAsync();
             fluxo = cliente.GetStream();
-
-           
-            AoClienteConectar?.Invoke("Cliente");
-
             _ = LoopRecebimentoAsync();
         }
 
-        public async Task ConectarAoServidorAsync(string ip, int porta, string apelido)
+        public async Task ConectarAoServidorAsync(string ip, int porta)
         {
             cliente = new TcpClient();
             await cliente.ConnectAsync(ip, porta);
             fluxo = cliente.GetStream();
-
-            // Dispara evento de cliente conectado no servidor enviando apelido
-            await EnviarMensagemAsync($"{apelido} entrou na conversa");
-
             _ = LoopRecebimentoAsync();
         }
 
@@ -70,12 +62,31 @@ namespace ChatP2P
             }
         }
 
+        // XOR otimizado com SIMD
         private byte[] CriptografarDescriptografar(byte[] dados)
         {
             byte[] chaveBytes = Encoding.UTF8.GetBytes(chaveXor);
-            byte[] resultado = new byte[dados.Length];
-            for (int i = 0; i < dados.Length; i++)
+            int len = dados.Length;
+            byte[] resultado = new byte[len];
+
+            int vectorSize = Vector<byte>.Count;
+            int i = 0;
+
+            // Processa blocos inteiros usando SIMD
+            for (; i <= len - vectorSize; i += vectorSize)
+            {
+                var dadosVec = new Vector<byte>(dados, i);
+                var chaveVec = new Vector<byte>(chaveBytes, i % chaveBytes.Length);
+                var resultadoVec = dadosVec ^ chaveVec;
+                resultadoVec.CopyTo(resultado, i);
+            }
+
+            // Processa o restante normalmente
+            for (; i < len; i++)
+            {
                 resultado[i] = (byte)(dados[i] ^ chaveBytes[i % chaveBytes.Length]);
+            }
+
             return resultado;
         }
 

@@ -3,7 +3,8 @@
         x:Class="ChatP2P.HostWindow"
         Width="300" Height="250"
         Background="#2C2F33"
-        Title="Hospedar Servidor">
+        Title="Hospedar Servidor"
+        CanResize="False">
 
     <Window.Styles>
         <Style Selector="TextBlock">
@@ -41,7 +42,7 @@
                 Width="80"
                 Height="30"/>
 
-        <!-- Conteúdo central -->
+       
         <StackPanel Grid.Row="1"
                     Margin="0"
                     Spacing="20"

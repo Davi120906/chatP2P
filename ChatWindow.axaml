@@ -6,7 +6,8 @@
         Height="600"
         Background="#2C2F33"
         Title="Coltezap Chat"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        CanResize="False">
 
     <Window.Styles>
         <Style Selector="TextBlock">
@@ -41,7 +42,7 @@
                  Margin="0">
             <ListBox.ItemTemplate>
                 <DataTemplate x:DataType="local:mensagemItem">
-                    <StackPanel Orientation="Horizontal" Spacing="5">
+                    <StackPanel Orientation="Horizontal" Spacing="0">
                         <TextBlock Text="{Binding apelido}" Foreground="{Binding cor}" FontWeight="Bold"/>
                         <TextBlock Text=": " Foreground="White"/>
                         <TextBlock Text="{Binding mensagem}" Foreground="White" TextWrapping="Wrap" MaxWidth="400"/>

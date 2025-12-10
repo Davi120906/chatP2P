@@ -3,7 +3,8 @@
         x:Class="ChatP2P.MainWindow"
         Width="350" Height="400"
         Background="#2C2F33"
-        Title="Coltezap">
+        Title="Coltezap"
+        CanResize="False">
 
     <Window.Styles>
         <!-- Texto padrão branco -->

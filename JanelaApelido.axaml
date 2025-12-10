@@ -5,7 +5,8 @@
         Height="200"
         Title="Defina seu Apelido"
         Background="#2C2F33"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        CanResize="False">
 
     <Window.Styles>
         <Style Selector="TextBlock">
