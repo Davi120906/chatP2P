@@ -1,0 +1,59 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:ChatP2P"
+        x:Class="ChatP2P.ChatWindow"
+        Width="500"
+        Height="600"
+        Background="#2C2F33"
+        Title="Coltezap Chat"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Styles>
+        <Style Selector="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        <Style Selector="TextBox">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#23272A"/>
+            <Setter Property="BorderBrush" Value="#5865F2"/>
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="Padding" Value="8"/>
+        </Style>
+        <Style Selector="Button">
+            <Setter Property="Background" Value="#5865F2"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Width" Value="80"/>
+        </Style>
+        <Style Selector="Button:pointerover">
+            <Setter Property="Background" Value="#4752C4"/>
+        </Style>
+    </Window.Styles>
+
+    <Grid RowDefinitions="*,Auto" Margin="10">
+        <!-- Lista de mensagens -->
+        <ListBox x:Name="LstMensagens"
+                 Background="#2C2F33"
+                 BorderThickness="0"
+                 Margin="0">
+            <ListBox.ItemTemplate>
+                <DataTemplate x:DataType="local:mensagemItem">
+                    <StackPanel Orientation="Horizontal" Spacing="5">
+                        <TextBlock Text="{Binding apelido}" Foreground="{Binding cor}" FontWeight="Bold"/>
+                        <TextBlock Text=": " Foreground="White"/>
+                        <TextBlock Text="{Binding mensagem}" Foreground="White" TextWrapping="Wrap" MaxWidth="400"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <!-- Caixa de entrada e botão enviar -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="10">
+            <TextBox x:Name="TxtMensagem" Width="380"/>
+            <Button x:Name="BtnEnviar" Content="Enviar"/>
+        </StackPanel>
+    </Grid>
+</Window>

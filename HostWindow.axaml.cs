@@ -24,8 +24,6 @@ public partial class HostWindow : Window
     private void BtnConfirmar_Click(object? sender, RoutedEventArgs e)
     {
         string portaText = TxtPorta.Text.Trim();
-
-        // Checa se é apenas números
         Regex numerosRegex = new Regex(@"^\d+$");
         if (!numerosRegex.IsMatch(portaText))
         {
@@ -34,15 +32,14 @@ public partial class HostWindow : Window
         }
 
         int porta = int.Parse(portaText);
-
-        // Checa se está entre 1 e 65535
         if (porta < 1 || porta > 65535)
         {
             CaixaMensagem.Show("Porta inválida! Digite um número entre 1 e 65535.", this);
             return;
         }
 
-        CaixaMensagem.Show($"Porta válida: {porta}", this);
-        // Aqui você poderá criar o servidor TCP mais tarde
+        var janelaApelido = new JanelaApelido(porta);
+        janelaApelido.Show();
+        this.Close();
     }
 }

@@ -1,0 +1,40 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="ChatP2P.JanelaApelido"
+        Width="350"
+        Height="200"
+        Title="Defina seu Apelido"
+        Background="#2C2F33"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Styles>
+        <Style Selector="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+        <Style Selector="TextBox">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#23272A"/>
+            <Setter Property="BorderBrush" Value="#5865F2"/>
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="Padding" Value="8"/>
+        </Style>
+        <Style Selector="Button">
+            <Setter Property="Background" Value="#5865F2"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Height" Value="45"/>
+        </Style>
+        <Style Selector="Button:pointerover">
+            <Setter Property="Background" Value="#4752C4"/>
+        </Style>
+    </Window.Styles>
+
+    <StackPanel Spacing="20" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20">
+        <TextBlock Text="Digite seu apelido:" HorizontalAlignment="Center"/>
+        <TextBox x:Name="TxtApelido" Width="200"/>
+        <Button x:Name="BtnConfirmar" Content="Confirmar" Width="150" HorizontalAlignment="Center"/>
+    </StackPanel>
+</Window>

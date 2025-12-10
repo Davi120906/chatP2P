@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\davic\\Downloads\\MensagemP2P\\CHATP2P\\ChatP2P.csproj": {}
+    "C:\\Users\\davic\\Downloads\\MensagemP2P\\ChatP2P\\ChatP2P.csproj": {}
   },
   "projects": {
-    "C:\\Users\\davic\\Downloads\\MensagemP2P\\CHATP2P\\ChatP2P.csproj": {
+    "C:\\Users\\davic\\Downloads\\MensagemP2P\\ChatP2P\\ChatP2P.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\davic\\Downloads\\MensagemP2P\\CHATP2P\\ChatP2P.csproj",
+        "projectUniqueName": "C:\\Users\\davic\\Downloads\\MensagemP2P\\ChatP2P\\ChatP2P.csproj",
         "projectName": "ChatP2P",
-        "projectPath": "C:\\Users\\davic\\Downloads\\MensagemP2P\\CHATP2P\\ChatP2P.csproj",
+        "projectPath": "C:\\Users\\davic\\Downloads\\MensagemP2P\\ChatP2P\\ChatP2P.csproj",
         "packagesPath": "C:\\Users\\davic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\davic\\Downloads\\MensagemP2P\\CHATP2P\\obj\\",
+        "outputPath": "C:\\Users\\davic\\Downloads\\MensagemP2P\\ChatP2P\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
