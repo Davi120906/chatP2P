@@ -19,6 +19,8 @@ public partial class MainWindow : Window
     }
     private void BtnCliente_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
-
+        var clientWindow = new ClientWindow();
+        clientWindow.Show();
+        this.Close();
     }
 }

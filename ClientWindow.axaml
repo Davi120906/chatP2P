@@ -1,0 +1,47 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="ChatP2P.ClientWindow"
+        Width="350"
+        Height="250"
+        Title="Conectar como Cliente"
+        Background="#2C2F33"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Styles>
+        <Style Selector="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+        <Style Selector="TextBox">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#23272A"/>
+            <Setter Property="BorderBrush" Value="#5865F2"/>
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="Padding" Value="8"/>
+        </Style>
+        <Style Selector="Button">
+            <Setter Property="Background" Value="#5865F2"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Height" Value="45"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+        <Style Selector="Button:pointerover">
+            <Setter Property="Background" Value="#4752C4"/>
+        </Style>
+    </Window.Styles>
+
+    <StackPanel Spacing="15" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20">
+        <TextBlock Text="Digite o IP do Servidor:"/>
+        <TextBox x:Name="TxtIP" Width="200"/>
+        <TextBlock Text="Digite a Porta:"/>
+        <TextBox x:Name="TxtPorta" Width="200"/>
+        <StackPanel Orientation="Horizontal" Spacing="20" HorizontalAlignment="Center">
+            <Button x:Name="BtnVoltar" Content="Voltar" Width="120"/>
+            <Button x:Name="BtnConfirmar" Content="Confirmar" Width="120"/>
+        </StackPanel>
+    </StackPanel>
+</Window>
