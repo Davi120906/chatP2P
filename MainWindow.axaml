@@ -1,0 +1,35 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="ChatP2P.MainWindow"
+        Width="350" Height="400"
+        Background="#2C2F33"
+        Title="Coltezap">
+
+    <Window.Styles>
+        <!-- Texto padrão branco -->
+        <Style Selector="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+
+        <!-- Botões estilo Discord -->
+        <Style Selector="Button">
+            <Setter Property="Background" Value="#5865F2"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="210"/>
+            <Setter Property="Height" Value="60"/>
+        </Style>
+
+        <Style Selector="Button:pointerover">
+            <Setter Property="Background" Value="#4752C4"/>
+        </Style>
+    </Window.Styles>
+
+    <StackPanel Margin="25" VerticalAlignment="Top" HorizontalAlignment="Center" Spacing="35">
+        <TextBlock Text="Bem vindo ao Coltezap" FontSize="22" HorizontalAlignment="Center" Margin="0,35,0,40"/>
+        <Button x:Name="BtnServidor" Content="Hospedar um chat(Servidor)" Width="210" Height="60" FontSize="14" HorizontalAlignment="Center"/>
+        <Button x:Name="BtnCliente" Content="Entrar em um chat(Cliente)" Width="210" Height="60" FontSize="14" HorizontalAlignment="Center"/>
+    </StackPanel>
+</Window>
