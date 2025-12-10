@@ -64,3 +64,4 @@ C:\Users\davic\Downloads\MensagemP2P\ChatP2P\obj\Debug\net9.0\refint\Avalonia\Ch
 C:\Users\davic\Downloads\MensagemP2P\ChatP2P\obj\Debug\net9.0\ChatP2P.csproj.Up2Date
 C:\Users\davic\Downloads\MensagemP2P\ChatP2P\obj\Debug\net9.0\ChatP2P.genruntimeconfig.cache
 C:\Users\davic\Downloads\MensagemP2P\ChatP2P\obj\Debug\net9.0\ref\ChatP2P.dll
+C:\Users\davic\Downloads\MensagemP2P\CHATP2P\obj\Debug\net9.0\ChatP2P.sourcelink.json

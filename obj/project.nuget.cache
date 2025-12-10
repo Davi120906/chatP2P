@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "41FYXXzevvo=",
+  "dgSpecHash": "A1o1AD4BG4M=",
   "success": true,
-  "projectFilePath": "C:\\Users\\davic\\Downloads\\MensagemP2P\\ChatP2P\\ChatP2P.csproj",
+  "projectFilePath": "C:\\Users\\davic\\Downloads\\MensagemP2P\\CHATP2P\\ChatP2P.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\davic\\.nuget\\packages\\avalonia\\11.2.7\\avalonia.11.2.7.nupkg.sha512",
     "C:\\Users\\davic\\.nuget\\packages\\avalonia.angle.windows.natives\\2.1.22045.20230930\\avalonia.angle.windows.natives.2.1.22045.20230930.nupkg.sha512",

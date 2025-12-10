@@ -15,17 +15,20 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ChatP2P
-build_property.ProjectDir = C:\Users\davic\Downloads\MensagemP2P\ChatP2P\
+build_property.ProjectDir = C:\Users\davic\Downloads\MensagemP2P\CHATP2P\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/davic/Downloads/MensagemP2P/ChatP2P/App.axaml]
+[C:/Users/davic/Downloads/MensagemP2P/CHATP2P/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/davic/Downloads/MensagemP2P/ChatP2P/HostWindow.axaml]
+[C:/Users/davic/Downloads/MensagemP2P/CHATP2P/CaixaMensagem.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/davic/Downloads/MensagemP2P/ChatP2P/MainWindow.axaml]
+[C:/Users/davic/Downloads/MensagemP2P/CHATP2P/HostWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/davic/Downloads/MensagemP2P/CHATP2P/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
