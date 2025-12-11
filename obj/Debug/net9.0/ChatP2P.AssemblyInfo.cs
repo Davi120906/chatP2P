@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ChatP2P")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d4611f71517cf0397eb0f81b009da565cf490c81")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8207b4a6543e9f8e1c2142e5fc8265c582a385ce")]
 [assembly: System.Reflection.AssemblyProductAttribute("ChatP2P")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ChatP2P")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

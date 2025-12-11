@@ -1,11 +1,14 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace ChatP2P
 {
     public partial class ClientWindow : Window
     {
+        private ConexaoTcp conexao = new ConexaoTcp();
+
         public ClientWindow()
         {
             InitializeComponent();
@@ -14,7 +17,7 @@ namespace ChatP2P
             BtnVoltar.Click += BtnVoltar_Click;
         }
 
-        private void BtnConfirmar_Click(object? sender, RoutedEventArgs e)
+        private async void BtnConfirmar_Click(object? sender, RoutedEventArgs e)
         {
             string ip = TxtIP.Text ?? "";
             string porta_texto = TxtPorta.Text ?? "";
@@ -44,6 +47,17 @@ namespace ChatP2P
                 return;
             }
 
+            try
+            {
+                await conexao.ConectarAoServidorAsync(ip, porta);
+                var janelaApelido = new JanelaApelidoCliente(conexao);
+                janelaApelido.Show();
+                this.Close();
+            }
+            catch
+            {
+                CaixaMensagem.Show("Não foi possível conectar ao servidor.", this);
+            }
         }
 
         private void BtnVoltar_Click(object? sender, RoutedEventArgs e)

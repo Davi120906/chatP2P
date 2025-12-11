@@ -15,6 +15,8 @@ namespace ChatP2P
         private NetworkStream? fluxo;
 
         public event Action<string>? AoReceberMensagem;
+        public event Action<string>? ClienteEntrou;
+
 
         public async Task IniciarServidorAsync(int porta)
         {
@@ -40,6 +42,14 @@ namespace ChatP2P
             await fluxo.WriteAsync(dados, 0, dados.Length);
         }
 
+        public async Task NotificarEntradaCliente(string apelido)
+        {
+            if (fluxo == null) return;
+            string mensagemEntrada = $"COLTEZAP AI:{apelido}";
+            byte[] dados = CriptografarDescriptografar(Encoding.UTF8.GetBytes(mensagemEntrada));
+            await fluxo.WriteAsync(dados, 0, dados.Length);
+        }
+
         private async Task LoopRecebimentoAsync()
         {
             if (fluxo == null) return;
@@ -55,6 +65,7 @@ namespace ChatP2P
                     string msg = Encoding.UTF8.GetString(CriptografarDescriptografar(msgBytes));
                     AoReceberMensagem?.Invoke(msg);
                 }
+                
                 catch
                 {
                     break;

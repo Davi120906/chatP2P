@@ -6,6 +6,7 @@ using Avalonia.Threading;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System;
 
 namespace ChatP2P;
 
@@ -30,6 +31,8 @@ public partial class ChatWindow : Window
         Brushes.Turquoise
     };
 
+    public event Action<string>? ClienteEntrou;
+
     public ChatWindow(string apelido, int porta)
     {
         InitializeComponent();
@@ -44,7 +47,6 @@ public partial class ChatWindow : Window
 
         conexao.AoReceberMensagem += ReceberMensagem;
 
-        
         _ = conexao.IniciarServidorAsync(porta);
     }
 
@@ -81,13 +83,35 @@ public partial class ChatWindow : Window
         TxtMensagem.Text = string.Empty;
         LstMensagens.ScrollIntoView(mensagens[mensagens.Count - 1]);
 
-   
         await conexao.EnviarMensagemAsync($"{apelido}:{texto}");
     }
 
     private void ReceberMensagem(string texto)
     {
-   
+        if (texto.StartsWith("COLTEZAP AI:"))
+        {
+            string apelidoCliente = texto.Substring("COLTEZAP AI:".Length);
+            ClienteEntrou?.Invoke(apelidoCliente);
+
+            Dispatcher.UIThread.Post(() =>
+            {
+                if (!apelidoCores.ContainsKey("COLTEZAP AI"))
+                    apelidoCores["COLTEZAP AI"] = Brushes.MediumPurple;
+
+                var msgItem = new mensagemItem
+                {
+                    apelido = "COLTEZAP AI",
+                    mensagem = $"{apelidoCliente} entrou na conversa!",
+                    cor = apelidoCores["COLTEZAP AI"]
+                };
+
+                mensagens.Add(msgItem);
+                LstMensagens.ScrollIntoView(mensagens[mensagens.Count - 1]);
+            });
+
+            return;
+        }
+
         var partes = texto.Split(':', 2);
         if (partes.Length != 2) return;
 
@@ -97,17 +121,16 @@ public partial class ChatWindow : Window
         if (!apelidoCores.ContainsKey(remetente))
             apelidoCores[remetente] = paletaCores[apelidoCores.Count % paletaCores.Count];
 
-        var msgItem = new mensagemItem
+        var msgItemNormal = new mensagemItem
         {
             apelido = remetente,
             mensagem = mensagem,
             cor = apelidoCores[remetente]
         };
 
-
         Dispatcher.UIThread.Post(() =>
         {
-            mensagens.Add(msgItem);
+            mensagens.Add(msgItemNormal);
             LstMensagens.ScrollIntoView(mensagens[mensagens.Count - 1]);
         });
     }

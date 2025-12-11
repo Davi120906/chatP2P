@@ -39,5 +39,8 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 [C:/Users/davic/Downloads/MensagemP2P/ChatP2P/JanelaApelido.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[C:/Users/davic/Downloads/MensagemP2P/ChatP2P/JanelaApelidoCliente.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [C:/Users/davic/Downloads/MensagemP2P/ChatP2P/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
