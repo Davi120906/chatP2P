@@ -17,6 +17,7 @@ public partial class ChatWindow : Window
     private Dictionary<string, IBrush> apelidoCores = new Dictionary<string, IBrush>();
     private int porta;
     private ConexaoTcp conexao = new ConexaoTcp();
+
     private List<IBrush> paletaCores = new List<IBrush>
     {
         Brushes.MediumPurple,
@@ -36,7 +37,6 @@ public partial class ChatWindow : Window
     public ChatWindow(string apelido, int porta)
     {
         InitializeComponent();
-
         this.apelido = apelido;
         this.porta = porta;
 
@@ -50,6 +50,26 @@ public partial class ChatWindow : Window
         _ = conexao.IniciarServidorAsync(porta);
     }
 
+    protected override async void OnClosing(WindowClosingEventArgs e)
+        {
+            await FecharConnection();
+            base.OnClosing(e);
+        }
+
+
+    private async Task FecharConnection()
+{
+    try
+    {
+        await conexao.EnviarMensagemAsync("SERVER_DOWN");
+        await Task.Delay(150);
+        typeof(ConexaoTcp)
+            .GetMethod("Fechar", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
+            ?.Invoke(conexao, null);
+    }
+    catch { }
+}
+
     private void BtnEnviar_Click(object? sender, RoutedEventArgs e)
     {
         EnviarMensagem();
@@ -58,9 +78,7 @@ public partial class ChatWindow : Window
     private void TxtMensagem_KeyDown(object? sender, KeyEventArgs e)
     {
         if (e.Key == Key.Enter)
-        {
             EnviarMensagem();
-        }
     }
 
     private async void EnviarMensagem()
@@ -88,6 +106,25 @@ public partial class ChatWindow : Window
 
     private void ReceberMensagem(string texto)
     {
+        if (texto.StartsWith("DISCONNECT_CLIENT:"))
+        {
+            string apelidoSaiu = texto.Replace("DISCONNECT_CLIENT:", "");
+
+            Dispatcher.UIThread.Post(() =>
+            {
+                mensagens.Add(new mensagemItem
+                {
+                    apelido = "Sistema",
+                    mensagem = $"{apelidoSaiu} saiu da conversa.",
+                    cor = Brushes.Gray
+                });
+
+                LstMensagens.ScrollIntoView(mensagens[mensagens.Count - 1]);
+            });
+
+            return;
+        }
+
         if (texto.StartsWith("COLTEZAP AI:"))
         {
             string apelidoCliente = texto.Substring("COLTEZAP AI:".Length);

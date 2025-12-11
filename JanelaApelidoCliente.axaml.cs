@@ -23,7 +23,9 @@ public partial class JanelaApelidoCliente : Window
             CaixaMensagem.Show("Por favor, digite um apelido.", this);
             return;
         }
-        await conexao.EnviarMensagemAsync($"COLTEZAP AI:{apelido}");
+        var chatWindow = new ChatWindowCliente(apelido, conexao);
+        chatWindow.Show();
+        this.Close();
        
     }
 }
