@@ -20,13 +20,15 @@
                        TextAlignment="Center"/>
 
             <Button x:Name="BtnOk"
-                    Content="OK"
-                    Width="80"
-                    HorizontalAlignment="Center"
-                    Background="#5865F2"
-                    Foreground="White"
-                    CornerRadius="8"
-                    Padding="6"/>
-        </StackPanel>
+                Content="OK"
+                Width="80"
+                HorizontalAlignment="Center"
+                Background="#5865F2"
+                Foreground="White"
+                CornerRadius="8"
+                Padding="6"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"/>
+                </StackPanel>
     </Border>
 </Window>

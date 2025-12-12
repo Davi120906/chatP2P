@@ -73,7 +73,7 @@ namespace ChatP2P
             }
         }
 
-        // XOR otimizado com SIMD
+   
         private byte[] CriptografarDescriptografar(byte[] dados)
         {
             byte[] chaveBytes = Encoding.UTF8.GetBytes(chaveXor);
@@ -92,7 +92,7 @@ namespace ChatP2P
                 resultadoVec.CopyTo(resultado, i);
             }
 
-            // Processa o restante normalmente
+      
             for (; i < len; i++)
             {
                 resultado[i] = (byte)(dados[i] ^ chaveBytes[i % chaveBytes.Length]);

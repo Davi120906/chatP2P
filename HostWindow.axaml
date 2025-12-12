@@ -33,7 +33,7 @@
     </Window.Styles>
 
     <Grid RowDefinitions="Auto,*">
-        <!-- Botão Voltar no canto superior esquerdo -->
+      
         <Button x:Name="BtnVoltar"
                 Content="⟵ Voltar"
                 HorizontalAlignment="Left"
@@ -55,7 +55,9 @@
 
             <TextBox x:Name="TxtPorta" Watermark="Ex: 8080"/>
 
-            <Button x:Name="BtnConfirmar" Content="Confirmar"/>
+            <Button x:Name="BtnConfirmar"
+            Content="Confirmar"
+            HorizontalContentAlignment="Center"/>
 
         </StackPanel>
     </Grid>

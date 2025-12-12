@@ -51,7 +51,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <!-- Caixa de entrada e botão enviar -->
+       
         <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="10">
             <TextBox x:Name="TxtMensagem" Width="380"/>
             <Button x:Name="BtnEnviar" Content="Enviar"/>
